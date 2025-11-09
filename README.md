@@ -79,7 +79,8 @@ POST /api/payment/create
   "currency": "USD",
   "AssetScale": "2"
 }
-```
+presetation
+https://drive.google.com/drive/folders/1fjl6M5CLl9h92mJRqv4Fygcq9w-uhoU0
 
 ## License
 MIT © 2025 GoMeter Team

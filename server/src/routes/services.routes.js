@@ -1,7 +1,7 @@
 import express from 'express';
 import db from '../db.js';
 import { authMiddleware } from '../auth.js';
-import { getWalletAddressInfo } from '../openpayments/client.js';
+import { getWalletAddressInfo } from '../openpayments/index.js';
 
 const r = express.Router();
 
@@ -11,7 +11,7 @@ function toCents(v) {
   return Math.round(n * 100);
 }
 
-// ✔️ NUEVO: devolver la moneda detectada de la wallet del usuario autenticado
+// ✔️ Moneda de la wallet del usuario autenticado
 r.get('/my-asset', authMiddleware, async (req, res) => {
   try {
     const me = req.user;
@@ -119,7 +119,7 @@ r.put('/:id', authMiddleware, async (req, res) => {
   }
 });
 
-// DELETE (cascada manual ya implementada previamente)
+// DELETE (cascada manual)
 r.delete('/:id', authMiddleware, (req, res) => {
   try {
     const me = req.user;
